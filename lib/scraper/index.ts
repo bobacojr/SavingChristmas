@@ -41,7 +41,7 @@ export async function scrapeAmazonProduct(url: string) {
       $('.a-price.a-text-price span.a-offscreen'),
       $('#listPrice'),
       $('#priceblock_dealprice'),
-      $('.a-size-base.a-color-price'),
+      $('.a-size-base.a-color-price')
     );
 
     const outOfStock = $('#availability span').text().trim().toLowerCase() === 'currently unavailable';
@@ -77,6 +77,7 @@ export async function scrapeAmazonProduct(url: string) {
       highestPrice: Number(originalPrice) || Number(currentPrice),
       averagePrice: Number(currentPrice) || Number(originalPrice),
     }
+
     return data;
   } catch (error: any) {
     console.log(error);
